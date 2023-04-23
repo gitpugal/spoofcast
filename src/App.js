@@ -103,11 +103,9 @@ import {
         <Route path="/user" exact Component={MainLogin}/>
         <Route path='/admin' exact Component={AdminLogin}/>
       </Routes>
-      <div className='flex flex-row gap-5 mt-10'>
-      <Link className="bg-gradient-to-r from-red-500 to-yellow-400 p-3 rounded-md my-3 cursor-pointer font-extrabold " to="/user">User Login ?</Link>
-      <Link className="bg-gradient-to-r from-yellow-400 to-red-500 p-3 rounded-md my-3 cursor-pointer" to="/admin">Admin Login ?</Link>
+      <Link className="bg-gradient-to-r from-red-600 to-yellow-400 text-2xl p-3 rounded-md my-3 sm:w-[15%] text-center cursor-pointer font-extrabold " to="/user">Login</Link>
+      <Link className="bg-gradient-to-tr from-slate-900 to-slate-500 p-3 rounded-md my-3 cursor-pointer" to="/admin">Admin Login</Link>
 
-      </div>
     </div>
     </BrowserRouter>
   );
