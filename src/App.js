@@ -51,11 +51,11 @@ import {
    console.log(user?.uid);
 
    useEffect(() => {
-    axios.get(`http://localhost:5000/${user?.uid}`)
+    axios.get(`https://spoofcastbackend.vercel.app/${user?.uid}`)
     .then(res => {
      console.log(res)
      if (res == [] || res?.data?.uid != user.uid){
-       axios.post("http://localhost:5000/login", {
+       axios.post("https://spoofcastbackend.vercel.app/login", {
          uid: user?.uid,
        })
      }
@@ -66,11 +66,11 @@ import {
     signInWithPopup(auth, provider)
     //   .then(res => {
     //     console.log("hhh")
-    //     axios.get(`http://localhost:5000/${userr?.uid}`)
+    //     axios.get(`https://spoofcastbackend.vercel.app/${userr?.uid}`)
     //    .then(res => {
     //     console.log(userr)
     //     if (res !="True"){
-    //       axios.post("http://localhost:5000/login", {
+    //       axios.post("https://spoofcastbackend.vercel.app/login", {
     //         uid: userr?.uid,
     //       })
     //     }

@@ -121,7 +121,7 @@ const AdminHome = (props) => {
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(()=> {
-        axios.get(`http://localhost:5000/admin/musics/${props.user?.uid}`)
+        axios.get(`https://spoofcastbackend.vercel.app/admin/musics/${props.user?.uid}`)
             .then(res => {setMusics(res.data)
             console.log(res)
             })
@@ -160,7 +160,7 @@ const AdminHome = (props) => {
         });
         setTimeout(() => {
             
-            axios.get(`http://localhost:5000/admin/musics/${props.user?.uid}`)
+            axios.get(`https://spoofcastbackend.vercel.app/admin/musics/${props.user?.uid}`)
         .then(res => {setMusics(res.data)
         console.log(res)
         setIsLoading(false)
@@ -181,7 +181,7 @@ const AdminHome = (props) => {
 
     function deleteHandler(mid){
         setIsDeleting(true);
-        axios.delete(`http://localhost:5000/admin/musics/${mid}`)
+        axios.delete(`https://spoofcastbackend.vercel.app/admin/musics/${mid}`)
             .then(console.log("deletd successfuly"))
             .catch(err => console.log(err));
         

@@ -19,7 +19,7 @@ const Home = (props) => {
 
   function makeAsFav(midd){
     console.log(midd)
-    axios.put(`http://localhost:5000/${props.user?.uid}`, {mid: midd})
+    axios.put(`https://spoofcastbackend.vercel.app/${props.user?.uid}`, {mid: midd})
       .then(res => setUser(res))
       .catch(err => console.log("Cannot fetch user "+err))
       setIsFav(true)
@@ -35,7 +35,7 @@ const Home = (props) => {
 
   function searchHandler(e){
     e.preventDefault();
-    axios.get(`http://localhost:5000/admin/musics/search/${searchTerm}`)
+    axios.get(`https://spoofcastbackend.vercel.app/admin/musics/search/${searchTerm}`)
       .then(res =>{
         setSearchResults(res.data)
         console.log(res.data)
@@ -45,18 +45,18 @@ const Home = (props) => {
   }
 
     useEffect(()=> {
-        axios.get("http://localhost:5000/admin/musics")
+        axios.get("https://spoofcastbackend.vercel.app/admin/musics")
             .then(res => {setMusics(res.data)
             })
             .catch(err => console.log(err))
-        axios.get(`http://localhost:5000/${props.user?.uid}`)
+        axios.get(`https://spoofcastbackend.vercel.app/${props.user?.uid}`)
             .then(res => setUser(res))
             .catch(err => console.log("Cannot fetch user "+err))
     }, [])
     
 
   //   useEffect(()=> {
-  //     axios.get(`http://localhost:5000/${props.user?.uid}`)
+  //     axios.get(`https://spoofcastbackend.vercel.app/${props.user?.uid}`)
   //         .then(res => setUser(res))
   //         .catch(err => console.log("Cannot fetch user "+err))
   // }, [isFav])
@@ -124,7 +124,7 @@ const Home = (props) => {
               
               async function favHandler(e){
                 e.preventDefault();
-                await axios.put(`http://localhost:5000/deleteFav/${props.user?.uid}`, {mid: music.mid})
+                await axios.put(`https://spoofcastbackend.vercel.app/deleteFav/${props.user?.uid}`, {mid: music.mid})
                   .then(res => setUser(res))
                   .catch(err => console.log("Cannot fetch user "+err))
                  setIsFav(false);
@@ -179,7 +179,7 @@ const Home = (props) => {
                if(currUser?.data?.favorites.find((favs) => favs == music.mid)){
                 async function favHandler(e){
                   e.preventDefault();
-                  await axios.put(`http://localhost:5000/deleteFav/${props.user?.uid}`, {mid: music.mid})
+                  await axios.put(`https://spoofcastbackend.vercel.app/deleteFav/${props.user?.uid}`, {mid: music.mid})
                     .then(res => setUser(res))
                     .catch(err => console.log("Cannot fetch user "+err))
                    setIsFav(false);
@@ -231,7 +231,7 @@ const Home = (props) => {
 
               async function favHandler(e){
                 e.preventDefault();
-                await axios.put(`http://localhost:5000/deleteFav/${props.user?.uid}`, {mid: music.mid})
+                await axios.put(`https://spoofcastbackend.vercel.app/deleteFav/${props.user?.uid}`, {mid: music.mid})
                   .then(res => setUser(res))
                   .catch(err => console.log("Cannot fetch user "+err))
                  setIsFav(false);
