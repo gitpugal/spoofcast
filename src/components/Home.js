@@ -196,7 +196,10 @@ const Home = (props) => {
                       </video>) : 
                   <ReactAudioPlayer src={music.file} controls className='w-[100%] mt-5'/>
                       }
+                      <div className='flex flex-row items-center justify-center'>
+                        {currUser?.data?.favorites.find((favs) => favs == music.mid) ? <p>Favorited</p> : <p>Add to favorite</p>}
                       <img src={ currUser?.data?.favorites.find((favs) => favs == music.mid) ? starFilled : starEmpty} onClick={currUser?.data?.favorites.find((favs) => favs == music.mid) ? favHandler : () => makeAsFav(music.mid)} alt="" className='h-10 w-10 mb-5 absolute right-3 top-2 cursor-pointer'/>
+                      </div>
                       <p className='absolute text-lg left-11   sm:bottom-24 bottom-16 flex-wrap w-[80%]'>{music.name}</p>
                       <p className='absolute bottom-10 text-xs font-extralight left-11'>{music.description}</p>
                       <p className='absolute bottom-4 opacity-50 text-xs right-4'>{music.category}</p>
@@ -248,7 +251,11 @@ const Home = (props) => {
                     </video>) : 
                 <ReactAudioPlayer src={music.file} controls className='w-[100%] mt-5'/>
                     }
-                    <img src={ currUser?.data?.favorites.find((favs) => favs == music.mid) ? starFilled : starEmpty} onClick={currUser?.data?.favorites.find((favs) => favs == music.mid) ? favHandler : () => makeAsFav(music.mid)} alt="" className='h-10 w-10 mb-5 absolute right-3 top-2 cursor-pointer'/>
+                    <div className='flex flex-row items-center justify-center mb-5 absolute right-3 top-2  '>
+                        {currUser?.data?.favorites.find((favs) => favs == music.mid) ? <p className='bottom-3 right-3 relative'>Favorited</p> : <p className='bottom-3 right-3 relative'>Add to favorite</p>}
+                      <img src={ currUser?.data?.favorites.find((favs) => favs == music.mid) ? starFilled : starEmpty} onClick={currUser?.data?.favorites.find((favs) => favs == music.mid) ? favHandler : () => makeAsFav(music.mid)} alt="" 
+                      className='h-10 w-10 mb-5 cursor-pointer'/>
+                      </div>
                     <p className='absolute text-lg left-11   sm:bottom-24 bottom-16 flex-wrap w-[80%]'>{music.name}</p>
                     <p className='absolute bottom-10 text-xs font-extralight left-11'>{music.description}</p>
                     <p className='absolute bottom-4 opacity-50 text-xs right-4'>{music.category}</p>
