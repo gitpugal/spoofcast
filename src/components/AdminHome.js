@@ -141,7 +141,7 @@ const AdminHome = (props) => {
         e.preventDefault();
         if(content.name.length == 0 || content.description.length == 0 || 
           content.category.length == 0 || content.speaker.length == 0 || 
-          content.file.length == 0 ){
+          !content.file.length ){
             alert("Please fill all details in the uplaod Form!!")
           }else{
             props.submitPodcast(content)

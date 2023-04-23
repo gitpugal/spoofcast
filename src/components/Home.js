@@ -106,9 +106,9 @@ const Home = (props) => {
           </div>
 
 
-          <div className='w-full h-fit'>
+          <div className='w-full relative h-fit'>
             {searchResults.length >0 && <button className="underline" onClick={clearSearch}>clear Search</button>}
-            
+            {searchResults.length > 0 && <p className='mt-5 text-xl font-bold mb-[-5px]]'>search results</p>}
             {searchResults &&  searchResults.map((music) => {
 
               if( !isFav &&  currUser?.data?.favorites.length > 0){
@@ -133,7 +133,6 @@ const Home = (props) => {
               }
               return (
                 <div className='w-full flex flex-col items-center justify-center'>
-                  <p className='mt-5 mb-[-5px]]'>search results</p>
                   <div key={music.mid} className="bg-gradient-to-tr from-gray-950 to-teal-500  p-10 pb-[120px] rounded-lg my-10 
                   w-[100%]  flex flex-col items-center justify-center relative">
                     {music.file.slice(-1) == "4" ? 
@@ -152,13 +151,16 @@ const Home = (props) => {
                     
                     
                 </div>
-            {searchResults.length >0 &&  <hr />}
+            {/* {searchResults.length >0 &&  <hr />} */}
           </div>
                 
               )
 })
             }
-            {searchResults.length > 0 && <hr />}
+                  
+            
+            {searchResults.length > 0 &&  <p className='text-lg font-semibold mb-3 bg-black p-1 rounded-md'>end of your search...</p>}
+            {searchResults.length > 0 &&  <hr className="w-[60%] mx-auto" />}
           </div>
 
           </div>
@@ -171,7 +173,7 @@ const Home = (props) => {
           {/* favroites list logic */}
           {/* <div className='flex flex-col items-center justify-center '> */}
 
-          <div className='mx-auto flex flex-col items-center justify-center'>
+          <div className='mx-auto w-full flex flex-col items-center justify-center'>
             
           
             
@@ -188,15 +190,15 @@ const Home = (props) => {
                 }
                 return (
                 
-                  <div key={music.mid} id ="tailtest" className="bg-gradient-to-tr from-gray-950 to-teal-500 p-10 pb-[120px] rounded-lg my-10 
-                    w-[100%]  flex flex-col items-center justify-center relative text-left">
+                  <div key={music.mid} id ="tailtest" className="bg-gradient-to-tr from-gray-950 to-teal-500  p-10 pb-[120px] rounded-lg my-10 
+                  w-[100%]  flex flex-col items-center justify-center relative">
                       {music.file.slice(-1) == "4" ? 
-                      (<video className='w-[700px] h-full mt-5' controls >
-                        <source src={music.file} type="video/mp4"/>
-                      </video>) : 
-                  <ReactAudioPlayer src={music.file} controls className='w-[100%] mt-5'/>
-                      }
-                      <div className='flex flex-row items-center justify-center'>
+                    (<video className='w-[700px] h-full mt-5' controls >
+                      <source src={music.file} type="video/mp4"/>
+                    </video>) : 
+                <ReactAudioPlayer src={music.file} controls className='w-[100%] mt-5'/>
+                    }
+                      <div className='flex w-full flex-row items-center justify-center'>
                         {currUser?.data?.favorites.find((favs) => favs == music.mid) ? <p>Favorited</p> : <p>Add to favorite</p>}
                       <img src={ currUser?.data?.favorites.find((favs) => favs == music.mid) ? starFilled : starEmpty} onClick={currUser?.data?.favorites.find((favs) => favs == music.mid) ? favHandler : () => makeAsFav(music.mid)} alt="" className='h-10 w-10 mb-5 absolute right-3 top-2 cursor-pointer'/>
                       </div>
