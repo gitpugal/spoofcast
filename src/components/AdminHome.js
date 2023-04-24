@@ -244,7 +244,7 @@ const AdminHome = (props) => {
           {/* <button type="submit" className="cursor-pointer bg-black rounded-lg p-2 text-white w-fit">Upload</button> */}
             {isUploading || isLoading ? <button className='p-2 rounded-md bg-slate-500 m-3' type="submit" disabled>Upload PodCast</button> : <button className='p-2 rounded-md bg-slate-500 m-3' type="submit">Upload PodCast</button>}
         </form>
-        <button className='p-2 rounded-md bg-red-500 m-3' onClick={() => signOut(props.auth)}>Sign Out</button>
+<button className="bg-red-500 p-3 rounded-md my-3 cursor-pointer absolute bottom-2" onClick={() => signOut(props.auth)}>Sign Out</button>
     </div>
   )
 }
